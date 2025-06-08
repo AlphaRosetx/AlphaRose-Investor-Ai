@@ -1,0 +1,19 @@
+{
+  "name": "alpharose-investor-ai",
+  "version": "1.0.0",
+  "description": "AlphaRose Therapeutics Investor AI Chatbot",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html dist/index.html && cp metadata.json dist/metadata.json && esbuild index.tsx --bundle --outfile=dist/bundle.js --platform=browser --format=esm --jsx=automatic --loader:.ts=tsx --define:process.env.API_KEY=\"'$API_KEY'\" --external:react --external:react-dom --external:@google/genai",
+    "dev": "esbuild index.tsx --bundle --outfile=dist/bundle.js --platform=browser --format=esm --jsx=automatic --loader:.ts=tsx --servedir=. --define:process.env.API_KEY=\"'YOUR_LOCAL_TEST_API_KEY_HERE'\"  --external:react --external:react-dom --external:@google/genai",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@google/genai": "^1.4.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
